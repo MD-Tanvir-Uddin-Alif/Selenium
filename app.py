@@ -1,13 +1,12 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import  Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from bs4 import BeautifulSoup
+import requests
 
 
-driver = webdriver.Chrome()
+url = requests.get("https://www.scrapethissite.com/pages/ajax-javascript/#2015").json()
 
-driver.get("http://www.python.org")
+html_template = BeautifulSoup(url, 'lxml')
 
-# print(driver.title)
-
-
-# assert "Python" in driver.title
+print(html_template)
