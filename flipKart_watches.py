@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 driver = webdriver.Edge()
 
@@ -13,7 +15,21 @@ input_search = driver.find_element(By.XPATH, '//input[@name="q"]')
 input_search.send_keys("smart watches")
 input_search.send_keys(Keys.ENTER)
 
+
+
+
+# Wait until the full DOM is completely loaded
+WebDriverWait(driver, 20).until(
+    lambda d: d.execute_script("return document.readyState") == "complete"
+)
+
+
+
+
+
+
 All_watches_Card = driver.find_elements(By.XPATH, '//div[@class="_75nlfW LYgYA3"]')
+
 
 for index, card in enumerate(All_watches_Card, 1):
     print(f'-------------------- Card {index} --------------------')
