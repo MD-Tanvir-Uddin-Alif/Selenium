@@ -1,38 +1,33 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
+import time
 
 driver = webdriver.Edge()
 
 driver.get('https://www.flipkart.com/')
 
-search = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/header/div[1]/div[2]/form/div/div/input')
-search.send_keys("smart watches")
-search.send_keys(Keys.ENTER)
-watches = driver.find_elements(By.XPATH, '//img[contains(@src, "http")]')
+input_search = driver.find_element(By.XPATH, '//input[@name="q"]')
+input_search.send_keys("smart watches")
+input_search.send_keys(Keys.ENTER)
 
+time.sleep(2)  
 
-# print(len(watches))
+product_card = driver.find_elements(By.XPATH, '//div[@class="_1sdMkc LFEi7Z"]')
+print(len(product_card))
 
-for i in range(1,len(watches)+1):
+for index, product in enumerate(product_card, 1):
     try:
-        watch_link = driver.find_element(By.XPATH, f'//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div[{i}]/div/a/div[1]/div/div/div/img').get_attribute('src')
-        watch_name = driver.find_element(By.XPATH, f'/html/body/div/div/div[3]/div[1]/div[2]/div[2]/div/div[{i}]/div/div/a[1]').get_attribute('title')
-        watch_price = driver.find_element(By.XPATH, f'/html/body/div/div/div[3]/div[1]/div[2]/div[2]/div/div[{i}]/div/div/a[2]/div/div[1]').text
-        watch_discount_price = driver.find_element(By.XPATH, f'/html/body/div/div/div[3]/div[1]/div[2]/div[2]/div/div[{i}]/div/div/a[2]/div/div[3]/span').text
+        link = product.find_element(By.XPATH, './/a').get_attribute('href')
+        print(f'Opening product {index}: {link}')
 
-        print("------------------------------------------------------------")
-        print(watch_link)
-        print(watch_name)
-        print(watch_price)
-        print(watch_discount_price)
-        print("-------------------------------------------------------------")
-    except:
-        print("-------------------------------------------------------------")
-        print(f"item is messing: {i}")
-        print("-------------------------------------------------------------")
+        driver.execute_script("window.open(arguments[0], '_blank');", link)
+        driver.switch_to.window(driver.window_handles[1])
 
+        print(driver.title)
 
-
-
+        driver.close()
+        driver.switch_to.window(driver.window_handles[0])
+        time.sleep(1)
+    except Exception as e:
+        print(f"Skipping product {index} due to error: {e}")

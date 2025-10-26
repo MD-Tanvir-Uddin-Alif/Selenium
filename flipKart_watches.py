@@ -33,7 +33,4 @@ for index, card in enumerate(All_watches_Card, 1):
 #         first_image = watch_images[0].get_attribute('src')
 #         print(f"First Image: {first_image}")
 
-product_Card = driver.find_elements()
-
-for product in product_Card:
     
