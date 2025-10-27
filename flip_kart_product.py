@@ -44,13 +44,27 @@ try:
             driver.execute_script("arguments[0].scrollIntoView(true);", card)
             time.sleep(0.5)
             
-            product_image = card.find_element(By.TAG_NAME, 'img')
-            image_src = product_image.get_attribute('src')
+            product_images = card.find_elements(By.TAG_NAME, 'img')
+            image_src = product_images[0].get_attribute('src')
+            product_link = card.find_element(By.XPATH, './/a').get_attribute('href')
+            product_name = (
+                card.find_element(By.XPATH, './/a/div[2]/div[1]/div[1]').text.strip() 
+                if card.find_element(By.XPATH, './/a/div[2]/div[1]/div[1]').text.strip() 
+                else card.find_element(By.XPATH, './/a/div[2]/div[1]/div[2]').text.strip()
+                )
             
-            product_name = card.find_element(By.TAG_NAME, 'a').get_attribute('href')
             
-            print(f"Product {index}: {image_src}")
-            print(f"Product {index}: {product_name}")
+            product_rating = (
+                card.find_element(By.XPATH, './/a/div[2]/div[1]/div[3]/span[1]/div').text.strip()
+                if card.find_element(By.XPATH, './/a/div[2]/div[1]/div[3]/span[1]/div').text.strip()
+                else card.find_element(By.XPATH, './/a/div[2]/div[1]/div[2]/span[1]/div').text.strip()
+                )
+
+            print('---------------------------------------------------------------------------------------')
+            print(f"Product Link {index}: {product_link}")
+            print(f"Product Image {index}: {image_src}")
+            print(f"Product Title {index}: {product_name}")
+            print(f"Product Title {index}: {product_rating}")
             
         except Exception as e:
             print(f"Error getting image for product {index}: {str(e)}")
