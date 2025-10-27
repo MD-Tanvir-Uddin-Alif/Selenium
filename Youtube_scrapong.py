@@ -5,11 +5,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.edge.options import Options
 
 # --------------------------
 # Setup
 # --------------------------
-driver = webdriver.Edge()
+
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+
+
+driver = webdriver.Edge(options=options)
 driver.get('https://www.youtube.com/')
 
 # Search input
@@ -51,7 +58,7 @@ print(f"Found {len(video_container)} videos.")
 # --------------------------
 # Save data to CSV
 # --------------------------
-with open("youtube_videos.csv", mode="w", newline="", encoding="utf-8") as file:
+with open("youtube_videos_2.csv", mode="w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Title", "Video Link", "Views", "Channel Link"])  # header
 
