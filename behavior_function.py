@@ -76,6 +76,7 @@ def human_click(driver, element):
     actions.click().perform()
     random_short_delay()
 
+
 def move_mouse_randomly(driver):
     """Move mouse to random positions (simulate reading)"""
     actions = ActionChains(driver)
@@ -84,6 +85,90 @@ def move_mouse_randomly(driver):
         y_offset = random.randint(-100, 100)
         actions.move_by_offset(x_offset, y_offset).pause(random.uniform(0.3, 0.8))
     actions.perform()
+
+def act_like_human(driver, duration_seconds=30):
+    """
+    Make the browser act like a human is using it!
+    
+    Args:
+        driver: Your Selenium WebDriver
+        duration_seconds: How long to act human (default 30 seconds)
+    
+    Usage:
+        act_like_human(driver)  # Acts human for 30 seconds
+        act_like_human(driver, 60)  # Acts human for 60 seconds
+    """
+    
+    print(f"🤖 Acting like a human for {duration_seconds} seconds...")
+    
+    start_time = time.time()
+    action_count = 0
+    
+    while time.time() - start_time < duration_seconds:
+        # Randomly choose what to do
+        action = random.choice([
+            'scroll_down',
+            'scroll_up', 
+            'scroll_little',
+            'move_mouse',
+            'pause',
+            'scroll_to_top',
+            'scroll_to_bottom'
+        ])
+        
+        if action == 'scroll_down':
+            # Scroll down a random amount
+            scroll_amount = random.randint(200, 600)
+            driver.execute_script(f"window.scrollBy(0, {scroll_amount});")
+            print(f"⬇️  Scrolled down {scroll_amount}px")
+            
+        elif action == 'scroll_up':
+            # Scroll up a random amount
+            scroll_amount = random.randint(100, 400)
+            driver.execute_script(f"window.scrollBy(0, -{scroll_amount});")
+            print(f"⬆️  Scrolled up {scroll_amount}px")
+            
+        elif action == 'scroll_little':
+            # Small scroll (reading)
+            scroll_amount = random.randint(50, 150)
+            driver.execute_script(f"window.scrollBy(0, {scroll_amount});")
+            print(f"📖 Small scroll {scroll_amount}px")
+            
+        elif action == 'move_mouse':
+            # Move mouse randomly
+            actions = ActionChains(driver)
+            for _ in range(random.randint(2, 5)):
+                x = random.randint(-200, 200)
+                y = random.randint(-200, 200)
+                actions.move_by_offset(x, y)
+                actions.pause(random.uniform(0.2, 0.5))
+            actions.perform()
+            print(f"🖱️  Moved mouse randomly")
+            
+        elif action == 'pause':
+            # Just pause (reading/thinking)
+            pause_time = random.uniform(2, 5)
+            print(f"🤔 Pausing for {pause_time:.1f}s (reading...)")
+            time.sleep(pause_time)
+            continue  # Skip the normal delay
+            
+        elif action == 'scroll_to_top':
+            # Scroll back to top
+            driver.execute_script("window.scrollTo(0, 0);")
+            print(f"🔝 Scrolled to top")
+            
+        elif action == 'scroll_to_bottom':
+            # Scroll to bottom
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            print(f"⬇️  Scrolled to bottom")
+        
+        action_count += 1
+        
+        # Random delay between actions
+        delay = random.uniform(1, 4)
+        time.sleep(delay)
+    
+    print(f"✅ Completed {action_count} human-like actions!")
 
 
 # ============================================

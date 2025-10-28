@@ -22,6 +22,8 @@ signIn_Button = driver.find_element(By.XPATH, '/html/body/nav/div/a[1]').click()
 
 time.sleep(3)
 
+
+
 email = ''
 password = ''
 
@@ -37,6 +39,8 @@ send_password.send_keys(password)
 time.sleep(1.5)
 send_password.send_keys(Keys.ENTER)
 time.sleep(2)
+
+
 
 # ---- CAPTCHA HANDLING ----
 try:
