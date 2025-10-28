@@ -14,6 +14,7 @@ options.add_argument("--incognito")
 
 driver = webdriver.Chrome(options=options)
 driver.get('https://www.linkedin.com/')
+driver.maximize_window()
 
 time.sleep(2)
 
@@ -21,22 +22,42 @@ signIn_Button = driver.find_element(By.XPATH, '/html/body/nav/div/a[1]').click()
 
 time.sleep(3)
 
-email = 'mdtanviruddinalif@gmail.com'
-password = 'dummy2345'
+email = ''
+password = ''
 
-send_emil = driver.find_element(By.XPATH, '//*[@id="username"]')
-time.sleep(1.1)
-send_emil.send_keys(email)
-time.sleep(1.8)
-send_emil.send_keys(Keys.ENTER)
-time.sleep(2.7)
+# ---- LOGIN ----
+send_email = driver.find_element(By.XPATH, '//*[@id="username"]')
+send_email.send_keys(email)
+time.sleep(1.5)
+send_email.send_keys(Keys.ENTER)
+time.sleep(2)
 
 send_password = driver.find_element(By.XPATH, '//*[@id="password"]')
-time.sleep(1.3)
 send_password.send_keys(password)
-time.sleep(2.3)
+time.sleep(1.5)
 send_password.send_keys(Keys.ENTER)
-time.sleep(2.8)
+time.sleep(2)
+
+# ---- CAPTCHA HANDLING ----
+try:
+    WebDriverWait(driver, 5).until(
+        EC.frame_to_be_available_and_switch_to_it((By.TAG_NAME, "iframe"))
+    )
+    print("⚠ CAPTCHA detected — please solve it manually in the browser...")
+
+    # WAIT until CAPTCHA is solved (watch URL change)
+    while True:
+        if "feed" in driver.current_url or "checkpoint" not in driver.current_url:
+            print("✅ CAPTCHA cleared — continuing automation")
+            driver.switch_to.default_content()
+            break
+        time.sleep(2)
+
+except Exception:
+    print("✅ No CAPTCHA — continuing")
+
+
+
 
 
 WebDriverWait(driver, 20).until(
@@ -59,37 +80,55 @@ WebDriverWait(driver, 20).until(
         )
 
 
+
+for _ in range(3):
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(3)
+
 content_list = driver.find_elements(By.CSS_SELECTOR, ".artdeco-card.mb2")
 
-for content in content_list:
+for index, content in enumerate(content_list, 1):
     try:
+        # Scroll the post into the center of the viewport
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", content)
+        time.sleep(1)
+        
+        
+        time.sleep(1)  # Pause so you can see which post is highlighted
+        
         # Try to click the comment button
         comment_button = content.find_element(
             By.CSS_SELECTOR,
             '.social-actions-button.comment-button'
         )
         comment_button.click()
-        time.sleep(1)
+        time.sleep(2)
 
         # If comment box appears -> type comment
         comment_box = WebDriverWait(driver, 2).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, '.ql-editor'))
         )
+        
+        comment_box = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '.ql-editor'))
+        )
+        
+        comment_box.click()
+        time.sleep(0.5)
+        
+        
         comment_box.send_keys("something")
         time.sleep(2)
-        print("Comment posted")
+        
+        print(f" Comment posted on post #{index}")
 
     except Exception as e:
         try:
-            # Comment button exists, but comments are disabled
             driver.find_element(By.CSS_SELECTOR, ".comments-disabled-comments-block")
-            print("Comments disabled — skipping this post")
+            print(f"Comments disabled on post #{index} — skipping")
             continue
         except:
-            print("⚠️ No active comment box — skipping")
+            print(f"⚠️ No active comment box on post #{index} — skipping")
             continue
 
-
-# time.sleep(10)
-
-print(len(content_list))
+print(f"Total posts: {len(content_list)}")
