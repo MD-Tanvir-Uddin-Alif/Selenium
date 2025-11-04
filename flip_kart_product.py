@@ -98,7 +98,7 @@ try:
                 EC.element_to_be_clickable((By.XPATH, '//span[text()="Next"]'))
             )
             next_btn.click()
-            time.sleep(3)  # wait for next page to load
+            time.sleep(1)  # wait for next page to load
         except:
             print("No more pages. Scraping finished.")
             break

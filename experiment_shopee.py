@@ -55,27 +55,23 @@ for cookie in cookies:
         "value": cookie.get("value", ""),
     }
 
-    # optional fields
     if cookie.get("path"):
         cookie_payload["path"] = cookie["path"]
     if "secure" in cookie:
         cookie_payload["secure"] = bool(cookie["secure"])
     if "httpOnly" in cookie:
-        # Selenium expects 'httpOnly' or 'httponly' depending on driver - include it
         cookie_payload["httpOnly"] = bool(cookie["httpOnly"])
 
     expiry = get_expiry(cookie)
     if expiry:
         cookie_payload["expiry"] = expiry
 
-    # Only include domain if it matches current host; otherwise omit it.
     domain = cookie.get("domain")
     if domain:
         normalized_domain = domain.lstrip(".")
         if normalized_domain == current_host:
             cookie_payload["domain"] = domain
         else:
-            # skip setting domain to avoid InvalidCookieDomainException
             pass
 
     try:
@@ -85,7 +81,6 @@ for cookie in cookies:
         print(f"Failed to add cookie {cookie.get('name')!r}: {e}. Payload: {cookie_payload}")
 
 print(f"Attempted to add {len(cookies)} cookies, successfully added {added} (approx).")
-# A short wait then refresh so the site picks up cookies
 time.sleep(1)
 driver.refresh()
 time.sleep(5)
@@ -104,49 +99,50 @@ except:
 
 
 
-simulate_human_behavior(driver, 3)
+simulate_human_behavior(driver, 5)
 
 
 # got to mobile accories page
-driver.get('https://shopee.sg/Mobile-Gadgets-cat.11013350?page=0&sortBy=sales')
+for i in range(2):
+    driver.get('https://shopee.sg/Mobile-Gadgets-cat.11013350?page=0&sortBy=sales')
 
-WebDriverWait(driver, 15).until(
-    lambda d: d.execute_script("return document.readyState") == "complete"
-)
+    WebDriverWait(driver, 15).until(
+        lambda d: d.execute_script("return document.readyState") == "complete"
+    )
 
-simulate_human_behavior(driver, 4)
+    simulate_human_behavior(driver, 2)
 
-WebDriverWait(driver, 20).until(
-    EC.visibility_of_all_elements_located((By.CSS_SELECTOR, '.col-xs-2-4.shopee-search-item-result__item'))
-)
-
-
-products_data = []
-
-PageProducts = driver.find_elements(By.CSS_SELECTOR, '.col-xs-2-4.shopee-search-item-result__item')
-
-for product in PageProducts:
-    try:
-        detils_link = product.find_element(By.CSS_SELECTOR, '.contents').get_attribute('href')
-        image_link = product.find_element(By.XPATH, ".//a/div/div[1]/img").get_attribute('src')
-        Name = product.find_element(By.XPATH, './/a[1]/div/div[2]/div[1]/div[1]').text
-        
-        products_data.append({
-            "name": Name,
-            "image": image_link,
-            "details_link": detils_link
-        })
-        simulate_human_behavior(driver, 1)
-        
-    except Exception as e:
-        print("Error:", e)
-
-with open('shopee_products.csv', 'w', newline='', encoding='utf-8') as f:
-    writer = csv.DictWriter(f, fieldnames=["name", "image", "details_link"])
-    writer.writeheader()
-    writer.writerows(products_data)
-
-print("✅ Saved to shopee_products.csv")
+    WebDriverWait(driver, 20).until(
+        EC.visibility_of_all_elements_located((By.CSS_SELECTOR, '.col-xs-2-4.shopee-search-item-result__item'))
+    )
 
 
-driver.quit()
+    products_data = []
+
+    PageProducts = driver.find_elements(By.CSS_SELECTOR, '.col-xs-2-4.shopee-search-item-result__item')
+
+    for product in PageProducts:
+        try:
+            detils_link = product.find_element(By.CSS_SELECTOR, '.contents').get_attribute('href')
+            image_link = product.find_element(By.XPATH, ".//a/div/div[1]/img").get_attribute('src')
+            Name = product.find_element(By.XPATH, './/a[1]/div/div[2]/div[1]/div[1]').text
+            
+            products_data.append({
+                "name": Name,
+                "image": image_link,
+                "details_link": detils_link
+            })
+            # simulate_human_behavior(driver, 1)
+            
+        except Exception as e:
+            print("Error:", e)
+
+    with open('shopee_products.csv', 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=["name", "image", "details_link"])
+        writer.writeheader()
+        writer.writerows(products_data)
+
+    print("✅ Saved to shopee_products.csv")
+
+
+    driver.quit()
