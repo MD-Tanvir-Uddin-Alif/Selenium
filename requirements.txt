@@ -6,3 +6,4 @@ python-dotenv==1.2.1
 undetected-chromedriver==3.5.5
 driver==0.1.0
 setuptools==80.9.0
+selenium-wire==5.1.0

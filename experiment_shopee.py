@@ -98,7 +98,6 @@ except:
     print("dint got the popup")
 
 
-
 simulate_human_behavior(driver, 5)
 
 
