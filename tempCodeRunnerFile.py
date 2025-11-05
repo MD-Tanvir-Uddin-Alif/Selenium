@@ -1,3 +1,3 @@
-WebDriverWait(driver, 20).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.artdeco-card.mb2'))
-        )
+seleniumwire_options = {
+    'verify_ssl': False  # Disable SSL verification to avoid backend errors
+}

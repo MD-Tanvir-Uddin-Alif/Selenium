@@ -127,25 +127,19 @@ for req in driver.requests:
         try:
             data = json.loads(body_text)
 
-            # Function to extract catid, main_category, sub_category
-            def extract_categories(categories, extracted=[], parent_name=""):
+            # Function to extract catid, category_name, parent_catid, parent_category_name
+            def extract_categories(categories, extracted=[], parent_catid=None, parent_name=None):
                 for cat in categories:
-                    if parent_name:  # This is a sub-category
-                        extracted.append({
-                            "catid": cat['catid'],
-                            "main_category": parent_name,
-                            "sub_category": cat['name']
-                        })
-                    else:  # This is a main category
-                        extracted.append({
-                            "catid": cat['catid'],
-                            "main_category": cat['name'],
-                            "sub_category": ""
-                        })
+                    extracted.append({
+                        "catid": cat['catid'],
+                        "category_name": cat['name'],
+                        "parent_catid": parent_catid if parent_catid is not None else cat['parent_catid'],
+                        "parent_category_name": parent_name if parent_name is not None else None
+                    })
                     
-                    # If children, recurse (handles subs)
+                    # If children, recurse
                     if 'children' in cat and cat['children']:
-                        extract_categories(cat['children'], extracted, cat['name'])
+                        extract_categories(cat['children'], extracted, cat['catid'], cat['name'])
                 
                 return extracted
 
@@ -153,10 +147,10 @@ for req in driver.requests:
             if 'data' in data and 'category_list' in data['data']:
                 all_extracted = extract_categories(data['data']['category_list'])
                 
-                # Save to CSV
+                # Save to CSV (use None for null in parent for mains)
                 import csv
                 with open('shopee_categories.csv', 'w', newline='', encoding='utf-8') as f:
-                    writer = csv.DictWriter(f, fieldnames=["catid", "main_category", "sub_category"])
+                    writer = csv.DictWriter(f, fieldnames=["catid", "category_name", "parent_catid", "parent_category_name"])
                     writer.writeheader()
                     writer.writerows(all_extracted)
                 print("\nSaved to 'shopee_categories.csv'")
