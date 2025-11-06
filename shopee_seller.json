@@ -40,7 +40,7 @@
   },
   {
     "domain": "shopee.sg",
-    "expirationDate": 1793874781,
+    "expirationDate": 1793937043,
     "hostOnly": true,
     "httpOnly": false,
     "name": "REC7iLP4Q",
@@ -79,7 +79,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1770114789,
+    "expirationDate": 1770177052,
     "hostOnly": false,
     "httpOnly": false,
     "name": "_fbp",
@@ -92,7 +92,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898783.069835,
+    "expirationDate": 1796961045.64743,
     "hostOnly": false,
     "httpOnly": false,
     "name": "SPC_U",
@@ -105,7 +105,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898783.069961,
+    "expirationDate": 1796961045.647654,
     "hostOnly": false,
     "httpOnly": false,
     "name": "SPC_R_T_ID",
@@ -118,7 +118,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898783.070021,
+    "expirationDate": 1796961045.647724,
     "hostOnly": false,
     "httpOnly": false,
     "name": "SPC_R_T_IV",
@@ -131,7 +131,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898783.070079,
+    "expirationDate": 1796961045.647791,
     "hostOnly": false,
     "httpOnly": true,
     "name": "SPC_T_ID",
@@ -144,7 +144,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898783.070157,
+    "expirationDate": 1796961045.647889,
     "hostOnly": false,
     "httpOnly": true,
     "name": "SPC_T_IV",
@@ -157,7 +157,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898783.069677,
+    "expirationDate": 1796961045.648017,
     "hostOnly": false,
     "httpOnly": true,
     "name": "SPC_ST",
@@ -170,7 +170,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1762425183.070234,
+    "expirationDate": 1762487445.647953,
     "hostOnly": false,
     "httpOnly": true,
     "name": "SPC_SI",
@@ -183,7 +183,7 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1762425189,
+    "expirationDate": 1762487452,
     "hostOnly": false,
     "httpOnly": false,
     "name": "_gid",
@@ -195,6 +195,32 @@
     "value": "GA1.2.943418503.1762247484"
   },
   {
+    "domain": "shopee.sg",
+    "expirationDate": 1762420716.637762,
+    "hostOnly": true,
+    "httpOnly": true,
+    "name": "SPC_SEC_SI",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "v1-VFpiM0UwN1FBdDFpcUVpQ3RbLZ8BJrWnmKIO1veav/SLYU78WjLF12T9b3VVZtbqLINHfRyDUnTTwnE5wP7ZUEz6VmG9tgtW7TFHlVBm/14="
+  },
+  {
+    "domain": "shopee.sg",
+    "expirationDate": 1796904293.94506,
+    "hostOnly": true,
+    "httpOnly": false,
+    "name": "_ga_EZBZ7XZP0H",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "deleted"
+  },
+  {
     "domain": ".shopee.sg",
     "hostOnly": false,
     "httpOnly": false,
@@ -204,7 +230,7 @@
     "secure": false,
     "session": true,
     "storeId": "0",
-    "value": "NRkgEEpr7RbDqbsyru2dYuWWFrO2j3kb"
+    "value": "vf2fDATBwfUKvRl3intFhjyD1EvRywF4"
   },
   {
     "domain": "shopee.sg",
@@ -228,115 +254,11 @@
     "secure": false,
     "session": true,
     "storeId": "0",
-    "value": "f7f7c8f4-8d5b-4fc5-8480-5d8a6d2c7d6c"
-  },
-  {
-    "domain": "shopee.sg",
-    "expirationDate": 1762420716.637762,
-    "hostOnly": true,
-    "httpOnly": true,
-    "name": "SPC_SEC_SI",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": true,
-    "session": false,
-    "storeId": "0",
-    "value": "v1-VFpiM0UwN1FBdDFpcUVpQ3RbLZ8BJrWnmKIO1veav/SLYU78WjLF12T9b3VVZtbqLINHfRyDUnTTwnE5wP7ZUEz6VmG9tgtW7TFHlVBm/14="
+    "value": "9c167c2a-78d3-4d1b-adc4-07a3e9d818e1"
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1762338826,
-    "hostOnly": false,
-    "httpOnly": false,
-    "name": "_dc_gtm_UA-61921742-7",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": false,
-    "session": false,
-    "storeId": "0",
-    "value": "1"
-  },
-  {
-    "domain": ".shopee.sg",
-    "expirationDate": 1762340578.213902,
-    "hostOnly": false,
-    "httpOnly": false,
-    "name": "AC_CERT_D",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": true,
-    "session": false,
-    "storeId": "0",
-    "value": "U2FsdGVkX19sTX4ZTjPgHaMtYVaG6tRsQH5QTrdOD4d0VrLhcZOHBM+PPLcDpWt6eEjwh9ZKZdHaTroeISoOaGIk7JQmgV7NB4C92u434YzF3+UzLmH7Ir20i1ZvGOP9/fV4rTBzXMeDb0uEkfFNhtyWWSYys8BO3k5kd5rVNm8UkhPQtjDkb2BvzOLSyTRNUN8yS0aLkx38Sy6qdyArnLVyyTaBo3AGtqMEl7ngp7cxOeZSoUbIW0aCNUi8716lQ8rrAGaFHFqsy7qxSA6VpgiBo47bKFTWXZrs6YXkF0EQKv7DNRmCGsRNhF6/fXvRDX7vYrhzqysOMjyerLFv+TOwXoAyw0HQeEdJbHnEyzn9hG5UoDdaABd9SC2RO9vaG5+1FqoMN3RCa2z2ChnPudOND6KFGvyOVw1hUWaL23Dorxeya5t/T7t5ZFXRLox4hdfKhf8DtPt4gmKYD9t1+hG7UjjiBsf2dB3TIMuH1UDyqAZhtBqKXMEQq9K9Zz4t8GKePXvJtA9hX8kC6AGl8sNRrdL+7UoezAQpDc1GED6ZF3uL4MglehxpIwR8e9eyrEyBZqVHkF0g/TpeonmLHbPez4eEu0roA/KGLIEdmYzAZqiv3STrBOzO/Bkw4C6vU9ke9TXd7EjyRF1GFNtD5mcnL2KzzWeACQ7ywmpWu8Npv1+wDyfu7B0s3g/nLshJvS6X+8n9+r4wrOQrLGL1M9aDgpT16uADc0G3BdpjzZZuRnrCOPE7EKyyUPjuH0wTlTR7+2cVuqrILfwT4J+AuZgqJuWGYXwnrDmbsGcIMy3RJL8xhjdml5DVgPH2ULVZLzg60iGFxK1uUR0RQ+vv0keAy5X1V4V5/bZEQFP5ouiucJhaK7fBmVzl8971YveAo2uqmSdnEQMwO5Eu5wOG7Gbqpnjx7OGEOb5/bs/ti3dXhGqgg9fFEwLCkoMstg42j/yizfTBI7Wc36gEZOxn+rO32vC6OTEMZHovlXXS21tdSXQ8Bz/G0tQX4YFu+DieLemrcXsJ36eHTYngDZDJ4BQBd0J/PNxjyN2xkXyjxKohmpemGVMPZdkkzQIjUvfmaaPnwipGShF0pdVw4bKaQg=="
-  },
-  {
-    "domain": ".shopee.sg",
-    "expirationDate": 1762943582.30215,
-    "hostOnly": false,
-    "httpOnly": false,
-    "name": "CTOKEN",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": true,
-    "session": false,
-    "storeId": "0",
-    "value": "U%2BdEP7ozEfCcnfIhl9Dh6g%3D%3D"
-  },
-  {
-    "domain": "shopee.sg",
-    "expirationDate": 1793874782,
-    "hostOnly": true,
-    "httpOnly": false,
-    "name": "shopee_webUnique_ccd",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": false,
-    "session": false,
-    "storeId": "0",
-    "value": "lRyFlldJFgPcV%2B6szz6FHg%3D%3D%7CLHc0bhVbClkd8mSCEHNwcjV9j7SOh2qqPq9SdlEMcEoCfyGV0UfOkdYqSmlLO65BoB11JtZVAIE%3D%7CFvYAQlZVh4PwtowQ%7C08%7C3"
-  },
-  {
-    "domain": "shopee.sg",
-    "expirationDate": 1793874782,
-    "hostOnly": true,
-    "httpOnly": false,
-    "name": "ds",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": false,
-    "session": false,
-    "storeId": "0",
-    "value": "57802a7cc2ff6903f41348235fe04b55"
-  },
-  {
-    "domain": ".shopee.sg",
-    "expirationDate": 1796898783.069898,
-    "hostOnly": false,
-    "httpOnly": true,
-    "name": "SPC_EC",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": true,
-    "session": false,
-    "storeId": "0",
-    "value": ".cEhHYmF5VmhUQ3ZlVFp3ZPGn0Z4Zu5TEHGt111jU+WDsEVDguvQVwfaK6HZn4ZVUVy33ypofHUJipqdsHIs0xIOIZGiOznI9Kvq0X52cSqooEw1OTPbZOfb3zqDALjg0RRaA+F7ih+aJ3iU0EWwUYFKv8CoB7ShiexhGhzUsVWCiAH4qAktwUkOVZg2ASzpo/fpt1FhEJYYd5uCSvNlU//ZO6cvq/9t1n3Yro3PjJyOm71z6/DVkhaM0zayStxzdllWOkaJmK1zkPfURc/2EEw=="
-  },
-  {
-    "domain": ".shopee.sg",
-    "expirationDate": 1796898789.588083,
-    "hostOnly": false,
-    "httpOnly": false,
-    "name": "_ga_EZBZ7XZP0H",
-    "path": "/",
-    "sameSite": "unspecified",
-    "secure": false,
-    "session": false,
-    "storeId": "0",
-    "value": "GS2.1.s1762338765$o21$g1$t1762338789$j36$l1$h180175223"
-  },
-  {
-    "domain": ".shopee.sg",
-    "expirationDate": 1762342389,
+    "expirationDate": 1762401808,
     "hostOnly": false,
     "httpOnly": false,
     "name": "AMP_TOKEN",
@@ -349,7 +271,85 @@
   },
   {
     "domain": ".shopee.sg",
-    "expirationDate": 1796898789.608637,
+    "expirationDate": 1762402841.463545,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "AC_CERT_D",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "U2FsdGVkX18Cji6dxWwb2AqLP0HUUmGg7bOOTMiEp4WiBjAxFBim29cmx1k0uPJaa1G1l8mDW2X2c0+DHBqaf7vy53IH72aGZTWsEOX1MC4M8l/2Ruk6QK68OQQ1QdwOpbzmP0eNxden0gA3XpOfEUvyNmQm8i4cVs/FKP8lGUspp4/fNbNi9X3HCsCQaYUFpRPrBHkH2kzN/OA6uBI5jAFR+iUnUueoOblF463EVnxcMmoJ/iCJTNJFM/R2lN1H+S2PGatDUQfzEg3Ao2WLQLKOZ4D3XH5YISVPd6rGEQpCgW00XMnHcps1SMpX0xtpm1H9OnnGtrNeoOzPF3+v+sSu8NKoAXt+C+B6y9LgwqhIU2HlmBXis8eLNaZumpqADkgwNqHAKV+XaP327wLUkIPtr9xqsvGxVHtTqIsMBtUrzqwedE7YGL6ybVjAgPNcZUsYNgyfxQ8lChN1kSnaSS857aHN19+rpMqm1IqR90IGsOorGf/Jp8ixOE/pbphjicdAMrwnnD3wPcasNIxLtI0o0kvTm/P4KKjaVdrpAJDGVA73Im6c3Trvq/8iUF3ceybDxKuevC2E3Xv04RTNMtQ0iGaTEdzf0U2RQdkfBDzBXcltikrn4pR2XzPHdxJ6cXjtE9AUvH10aJQ83NjkGri9elXkuNhe1JzyRmvM2g2GZR6DhfkQzUjlykCQLGG7SFfey6jYa/MUpjkTUu4gKr67elQKLH+eb6AJtdVKMQbeBcVL8pN3CFXWXGtjWaZ44yWMyM9ZEL86FHVW7ezAxOFSUNnDdd/mZktGyFpeYdKUNESmaq09r0dGPaH7JyUW4rzEIeEp3oDBLWwMPeSUF5sis0lWXFOfNBKHruqWIifj4Swkrz4Z4cMr0o09dZ8lepSVUKemdjPA+RtMCiarlKlGidGoJE++KmqRX11aTW8+32fdbUAc8t3dfUn4e5/+W4K/iMCABm3PWmRxB+zES7Wu0BZuIlOFOMEHRt7S4MbV55VAxTwdE3vZnc0Ij1oNmdjc2/LlV48Mn7upYVw2owhSbJz0NMd0PHU1uveJyFdJGluIIoC0iYBlRT0N/CWPcGcu46ruDWSzyIpMlY5mKA=="
+  },
+  {
+    "domain": "shopee.sg",
+    "expirationDate": 1793937044,
+    "hostOnly": true,
+    "httpOnly": false,
+    "name": "shopee_webUnique_ccd",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "oyZnXUUTIPtW930loDCvPQ%3D%3D%7CGXc0bhVbClkd8mSCEHNwcjV9j7SOh2qqPq9SdrMYqk4CfyGV0UfOkdYqSmlLO65BoB11JtZVAIE%3D%7CFvYAQlZVh4PwtowQ%7C08%7C3"
+  },
+  {
+    "domain": "shopee.sg",
+    "expirationDate": 1793937044,
+    "hostOnly": true,
+    "httpOnly": false,
+    "name": "ds",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "1a22313494ab7394cf9dea0ad4f8107d"
+  },
+  {
+    "domain": ".shopee.sg",
+    "expirationDate": 1763005845.14091,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "CTOKEN",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "S%2BGw%2F7rEEfCfzVKVvwB8Pw%3D%3D"
+  },
+  {
+    "domain": ".shopee.sg",
+    "expirationDate": 1796961045.647575,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "SPC_EC",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": ".ODZTcG9MMlNaZkxsbnoyZ+X4/y/sijpXavcsYqLVu/8gEQ3ZYQfpHJpsos+MD4LuK0G0lvj/pLZeBpY/j6FPl7SRGtsONdmXPfwGgntdUQ7ae7/2otB89ZIQRXh5jnJwFK3FbdwEws7kcETwgQeL6l17c9cm+ufi7sV0/fxeoYro9Pdof4SuFS+ekr4nwMupA62aUS7HX9Vp48iAV6Red2xeyCTJyZK2Xfi1Z4vY0NsLxiERXHgBN4ShkKMfJUs3G1hrO1ocBJi2orsMJaV5lw=="
+  },
+  {
+    "domain": ".shopee.sg",
+    "expirationDate": 1796961052.157681,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "_ga_EZBZ7XZP0H",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "GS2.1.s1762401026$o23$g1$t1762401052$j34$l1$h358417878"
+  },
+  {
+    "domain": ".shopee.sg",
+    "expirationDate": 1796961052.310189,
     "hostOnly": false,
     "httpOnly": false,
     "name": "_ga",
@@ -359,5 +359,18 @@
     "session": false,
     "storeId": "0",
     "value": "GA1.2.915546789.1761628753"
+  },
+  {
+    "domain": ".shopee.sg",
+    "expirationDate": 1762401112,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "_dc_gtm_UA-61921742-7",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "1"
   }
 ]
